@@ -1,0 +1,96 @@
+<?php
+session_start();
+?>
+<?php
+error_reporting(0);
+include("dbconnection.php");
+$dt=date("Y-m-d");
+$tim=date("H:i:s");
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>Vince Sacks LTD</title>
+
+    <link rel="stylesheet" href="login.css">
+
+  </head>
+
+  <body>
+    <?php
+    if(isset($SESSION[adminid]))
+    {
+      echo"<script>window
+    }
+    <form action="action_page.php" method="post">
+        
+      
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+      
+          <td>Password </td>  
+           
+          <span id = "message" style="color:red"> </span> <br><br>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <form onsubmit ="return verifyPassword(12345678)">  
+            <!-- Enter Password -->  
+              
+              
+            <!-- Click to verify valid password --> 
+            <button input type = "submit" value = "Submit">submit</button> 
+             
+              
+            <!-- Click to reset fields -->  
+            <button type = "reset" value = "Reset" >Reset</button>  
+            </form>
+          <label>
+              <BR>
+            <button type="submit"><a class="nav-link" href="registration.html">Register</a></button>  
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      
+        <script>  
+          function verifyPassword() {  
+            var pw = document.getElementById("psw").value;  
+            //check empty password field  
+            if(psw == "") {  
+               document.getElementById("message").innerHTML = "**Fill the password please!";  
+               return false;  
+            }  
+             
+           //minimum password length validation  
+            if(pw.length < 8) {  
+               document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+               return false;  
+            }  
+            
+          //maximum length of password validation  
+            if(pw.length > 15) {  
+               document.getElementById("message").innerHTML = "**Password length must not exceed 15 characters";  
+               return false;  
+            } else {  
+               alert("Password is correct");  
+            }  
+          }  
+          </script>  
+            
+        
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+      </body>
+      </html>
